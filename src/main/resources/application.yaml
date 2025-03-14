@@ -1,0 +1,18 @@
+server:
+  servlet:
+    context-path: /api/v1
+
+spring:
+  datasource:
+    url: jdbc:postgresql://dpg-cv99chqn91rc73d8bu80-a.oregon-postgres.render.com/tiki_postgre
+    username: tiki_postgre_user
+    password: ZRgBf2gUDzrnepE95NI4u9O66bFQuO0A
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
