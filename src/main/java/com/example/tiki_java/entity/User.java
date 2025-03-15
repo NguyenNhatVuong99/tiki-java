@@ -8,6 +8,8 @@ import lombok.AccessLevel;
 import lombok.Data;
 import lombok.experimental.FieldDefaults;
 
+import java.util.Date;
+
 @Entity
 @Data
 @Table(name = "users")
@@ -18,4 +20,6 @@ public class User extends BaseEntity {
     String password;
     String firstName;
     String lastName;
+    Date emailVerifiedAt;
+
 }

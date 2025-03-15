@@ -1,8 +1,15 @@
 server:
   servlet:
     context-path: /api/v1
-
+app:
+  jwt:
+    key: "37f705916c60c117de9c13a424e8ff2460c6514485025412f21ca78208c49b470b9d949b3ffa8b0b5697eb699abf698c394b448045b76346d021b817cb5883046c553547f06ec24c83dcff72002950e72430f593173f37e406641b0e924d8b7d734df0d4f2d54485c72b69b650388ab8595d0e9d7d77ebaeba5942a31980de515cd123d917a38fb379171d7728d85ce8e58cde0ccc3c776db97691dc5e7f827addbe03f7fea6a24d2a50614003a8ffffb6ee46d7bf6e127c5e7084d8daabc34070d2d8e4450d2d884bf876db86060e7d8c33df4a30edca25185b4bb274ada7ef7a7893f0a791010100276b6cf816ae090f1a76beefa78442f36f065e4378fb56"
+    algorithm: HS256
+    issuer: http://localhost:8080
+    expiresIn: 1d
 spring:
+  messages:
+    basename: ValidationMessages
   datasource:
     url: jdbc:postgresql://dpg-cv99chqn91rc73d8bu80-a.oregon-postgres.render.com/tiki_postgre
     username: tiki_postgre_user
