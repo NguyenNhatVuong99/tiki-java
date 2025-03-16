@@ -11,4 +11,6 @@ public class UserResponse {
     String email;
     String firstName;
     String lastName;
+    String provider;
+    String providerId;
 }

@@ -21,5 +21,6 @@ public class User extends BaseEntity {
     String firstName;
     String lastName;
     Date emailVerifiedAt;
-
+    String provider;
+    String providerId;
 }
