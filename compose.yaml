@@ -1,10 +1,23 @@
+version: '3.8'
 services:
-  mysql:
-    image: 'mysql:latest'
-    environment:
-      - 'MYSQL_DATABASE=mydatabase'
-      - 'MYSQL_PASSWORD=secret'
-      - 'MYSQL_ROOT_PASSWORD=verysecret'
-      - 'MYSQL_USER=myuser'
+  app:
+    image: tiki-java
+    build:
+      context: .
     ports:
-      - '3306'
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: ${POSTGRES_URL}
+      SPRING_DATASOURCE_USERNAME: ${POSTGRES_USER}
+      SPRING_DATASOURCE_PASSWORD: ${POSTGRES_PASSWORD}
+    depends_on:
+      - db
+    volumes:
+      - .:/app  # Mount toàn bộ thư mục hiện tại vào container
+      - ~/.m2:/root/.m2  # Mount thư viện Maven để cache dependencies
+  db:
+    image: postgres
+    container_name: db
+    environment:
+      POSTGRES_USER:  ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
